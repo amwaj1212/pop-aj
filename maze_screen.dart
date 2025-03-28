@@ -1,0 +1,92 @@
+import 'package:flutter/material.dart';
+import 'package:poplist1/widgets/bottom_nav_bar.dart';
+import 'package:poplist1/widgets/maze_widget.dart';
+import 'package:poplist1/utils/constants.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+class MazeScreen extends StatefulWidget {
+  final int levelIndex;
+
+  const MazeScreen({
+    Key? key,
+    required this.levelIndex,
+  }) : super(key: key);
+
+  @override
+  State<MazeScreen> createState() => _MazeScreenState();
+}
+
+class _MazeScreenState extends State<MazeScreen> {
+  int _selectedIndex = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      extendBodyBehindAppBar: true,
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('resources/images/background.jpg'),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Column(
+          children: [
+            // Header Text with perfect spacing
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20, 60, 20, 15),
+              child: Text(
+                'خذ وقتك بالتفكير بالحل، وتذكر كل ما زاد عمق التفكير زاد التركيز',
+                style: GoogleFonts.workSans(
+                  fontSize: 22,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white,
+                  height: 1.4, // Optimal line spacing
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
+
+            // Maze Widget with balanced vertical space
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                child: MazeWidget(level: mazeLevels[widget.levelIndex]),
+              ),
+            ),
+
+            // Back Button with perfect bottom padding
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20, 10, 20, 25),
+              child: SizedBox(
+                width: 280,
+                height: 60, // Taller button
+                child: ElevatedButton(
+                  onPressed: () => Navigator.pop(context),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xFFFFCC63),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12), // Smoother corners
+                    ),
+                    elevation: 3, // Subtle shadow
+                  ),
+                  child: const Text(
+                    'العودة إلى اختيار المستوى',
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+      bottomNavigationBar: BottomNavBar(
+        currentIndex: _selectedIndex,
+      ),
+    );
+  }
+}
