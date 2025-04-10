@@ -1,5 +1,5 @@
+
 import 'package:flutter/material.dart';
-import 'package:poplist1/widgets/bottom_nav_bar.dart';
 import 'package:poplist1/widgets/maze_widget.dart';
 import 'package:poplist1/utils/constants.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -84,9 +84,7 @@ class _MazeScreenState extends State<MazeScreen> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavBar(
-        currentIndex: _selectedIndex,
-      ),
+
     );
   }
 }
