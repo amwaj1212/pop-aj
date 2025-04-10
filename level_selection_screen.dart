@@ -1,6 +1,6 @@
+
 import 'package:flutter/material.dart';
 import 'package:poplist1/screens/maze_screen.dart';
-import 'package:poplist1/widgets/bottom_nav_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LevelSelectionScreen extends StatelessWidget {
@@ -116,7 +116,6 @@ class LevelSelectionScreen extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: const BottomNavBar(currentIndex: 0),
     );
   }
 }
