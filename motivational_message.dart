@@ -1,6 +1,6 @@
+
 import 'package:flutter/material.dart';
 import 'package:poplist1/screens/level_selection_screen.dart';
-import 'package:poplist1/widgets/bottom_nav_bar.dart';
 
 class MotivationalMessageScreen extends StatefulWidget {
   const MotivationalMessageScreen({Key? key}) : super(key: key);
@@ -90,7 +90,6 @@ class _MotivationalMessageScreenState extends State<MotivationalMessageScreen>
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavBar(currentIndex: 0),
     );
   }
 }
