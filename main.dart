@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart'; // New import
 import 'package:poplist1/screens/motivational_message.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  // Add these 2 lines only:
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
+  runApp(const MyApp()); // Keep everything else the same
 }
 
 class MyApp extends StatelessWidget {
